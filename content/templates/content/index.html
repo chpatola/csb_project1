@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cities</title>
+</head>
+<body>
+    <p>This is a page where you can share your viewpoints on different cities.</p>
+    
+    <form action="{% url 'content:addcity'%}" method="post">  
+        {% csrf_token %}
+        City:
+        <br>
+        <input type="text"  name="city_name"><br>
+        What do you think of the city?:<br>
+        <textarea rows = "5" cols = "60" name = "description"></textarea>
+        <br>
+        <input type="submit" value="Submit">
+        </form>
+        
+        {% if city_list %}
+            <ul>
+            {% for c in city_list %}
+                <li>{{c.city_name}}
+                     <br>
+                     {{c.description}}</li>
+                <br>
+               
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>There is no content to load.</p>
+        {% endif %}
+    
+</body>
+</html>

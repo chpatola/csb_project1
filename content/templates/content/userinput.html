@@ -1,0 +1,18 @@
+<form action="{% url 'content:handleuserinput'%}" method="post">  
+    {% csrf_token %}
+    Your Name:<br>
+      <input type="text"  name="name">
+      <br>
+      Social Security Number:
+      <br>
+      <input type="text"  name="social_security">
+      <br>
+      How can we help you?
+      <br>
+      <textarea rows = "5" cols = "60" name = "my_issue">
+     </textarea><br>
+    <input type="submit" value="Submit">
+    </form>
+
+    
+    
